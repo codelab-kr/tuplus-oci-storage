@@ -7,9 +7,9 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: mainRepo]]])
     }
 
-    // stage('Update submodules') {
-    //     sh 'git submodule update --init --recursive'
-    // }
+    stage('Update submodules') {
+        sh 'git submodule update --init --recursive'
+    }
 
     stage('Checkout sub repo') {
         dir('submodule') {
