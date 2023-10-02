@@ -1,7 +1,7 @@
 node {
     def app
-    def mainRepo = 'https://github.com/codelab-kr/tuplus-oci-storage.git'
-    def subRepo = 'https://github.com/codelab-kr/tuplus-secutiry-oci.git'
+    // def mainRepo = 'https://github.com/codelab-kr/tuplus-oci-storage.git'
+    // def subRepo = 'https://github.com/codelab-kr/tuplus-secutiry-oci.git'
 
     // stage('Checkout main repo') {
     //     checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: mainRepo]]])
