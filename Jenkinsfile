@@ -1,25 +1,13 @@
 node {
     def app
-    // def mainRepo = 'https://github.com/codelab-kr/tuplus-oci-storage.git'
-    // def subRepo = 'https://github.com/codelab-kr/tuplus-secutiry-oci.git'
 
-    // stage('Checkout main repo') {
-    //     checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: mainRepo]]])
-    // }
+    stage('Clone repository') {
+        checkout scm
+    }
 
-    // stage('Update submodules') {
-    //     sh 'git submodule update --init --recursive'
-    // }
-
-    // stage('Checkout sub repo') {
-    //     dir('submodule') {
-    //         checkout([$class: 'GitSCM', branches: [[name: '*/feature']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: subRepo]]])
-    //     }
-    // }
-
-     stage('Clone repository') {
-         checkout scm
-     }
+    stage('Build image') {
+        app = docker.build("ap-seoul-1.ocir.io/cnqphqevfxnp/metadata")
+    }
 
     stage('Test image') {
         app.inside {
