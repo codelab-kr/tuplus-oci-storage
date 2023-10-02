@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("ap-seoul-1.ocir.io/cnqphqevfxnp/metadata")
+        app = docker.build("ap-seoul-1.ocir.io/cnqphqevfxnp/oci-storage")
     }
 
     stage('Test image') {
