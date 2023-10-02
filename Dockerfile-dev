@@ -1,0 +1,9 @@
+FROM node:17.9.1-alpine3.14
+
+WORKDIR /usr/src/app
+COPY package*.json ./
+COPY ./.oci /root/.oci
+
+CMD npm ci && \
+    npx wait-port rabbit:5672 && \
+    npm run start:dev
