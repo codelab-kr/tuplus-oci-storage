@@ -3,7 +3,6 @@ node {
 
      stage('Clone repository') {
          checkout scm
-         sh 'git submodule update --init --recursive'
      }
 
      stage('Build image') {
